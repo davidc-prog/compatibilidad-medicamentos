@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Compatibilidad IV</title>
+
+<style>
+body {
+  font-family: Arial;
+  background: #f4f7fb;
+  padding: 40px;
+}
+
+.container {
+  max-width: 500px;
+  margin: auto;
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+}
+
+h2 {
+  text-align: center;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 20px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+.result {
+  text-align: center;
+  font-size: 22px;
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+.compatible { color: green; }
+.incompatible { color: red; }
+.nodata { color: orange; }
+
+.footer {
+  font-size: 12px;
+  margin-top: 20px;
+  color: gray;
+  text-align: center;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+  <h2>Compatibilidad de Medicamentos IV</h2>
+
+  <input list="drugs" id="drug1" placeholder="Medicamento 1">
+  <input list="drugs" id="drug2" placeholder="Medicamento 2">
+
+  <datalist id="drugs"></datalist>
+
+  <button onclick="check()">Ver compatibilidad</button>
+
+  <div class="result" id="result"></div>
+
+  <div class="footer">
+    ⚠️ Validar siempre con farmacia clínica.  
+    Referencias: NHS / Stabilis
+  </div>
+</div>
+
+<script>
+
+// 👉 PEGA AQUÍ TU BASE COMPLETA
+const database = [
+  { "key": "ceftriaxona-vancomicina"; "result": "incompatible" };
+{ "key": "dopamina-furosemida"; "result": "compatible" };
+{ "key": "fentanilo-midazolam"; "result": "compatible" };
+{ "key": "heparina-noradrenalina"; "result": "precaucion" };
+{ "key": "furosemida-insulina"; "result": "incompatible" };
+];
+
+// 🔹 GENERAR LISTA ÚNICA DE MEDICAMENTOS
+const drugSet = new Set();
+
+database.forEach(item => {
+  const [a, b] = item.key.split("-");
+  drugSet.add(a);
+  drugSet.add(b);
+});
+
+// 🔹 LLENAR AUTOCOMPLETADO
+const datalist = document.getElementById("drugs");
+
+drugSet.forEach(drug => {
+  const option = document.createElement("option");
+  option.value = drug;
+  datalist.appendChild(option);
+});
+
+// 🔹 NORMALIZAR
+function normalizeKey(a, b) {
+  return [a.toLowerCase(), b.toLowerCase()].sort().join("-");
+}
+
+// 🔹 VALIDACIÓN PRINCIPAL
+function check() {
+  const d1 = document.getElementById("drug1").value.trim().toLowerCase();
+  const d2 = document.getElementById("drug2").value.trim().toLowerCase();
+
+  const resultDiv = document.getElementById("result");
+
+  if (!d1 || !d2) {
+    resultDiv.innerHTML = "⚠️ Ingrese ambos medicamentos";
+    resultDiv.className = "result nodata";
+    return;
+  }
+
+  const key = normalizeKey(d1, d2);
+  const found = database.find(item => item.key === key);
+
+  if (!found) {
+    resultDiv.innerHTML = "🟡 Sin datos";
+    resultDiv.className = "result nodata";
+    return;
+  }
+
+  if (found.result === "compatible") {
+    resultDiv.innerHTML = "🟢 Compatible";
+    resultDiv.className = "result compatible";
+  } else {
+    resultDiv.innerHTML = "🔴 Incompatible";
+    resultDiv.className = "result incompatible";
+  }
+}
+
+</script>
+
+</body>
+</html>
