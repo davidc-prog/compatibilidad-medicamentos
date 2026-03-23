@@ -1,1 +1,0 @@
-# compatibilidad-medicamentos
