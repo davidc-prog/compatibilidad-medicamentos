@@ -1,0 +1,152 @@
+[
+  {
+    "drugA": "Vancomicina",
+    "drugB": "Cefepime",
+    "compatibility": "compatible",
+    "diluent": "NaCl 0.9%",
+    "conditions": "Y-site, concentraciones estándar",
+    "evidence": "NHS v2.1",
+    "notes": "Sin precipitación visible",
+    "confidence": "high"
+  },
+  {
+    "drugA": "Vancomicina",
+    "drugB": "Piperacilina/Tazobactam",
+    "compatibility": "incompatible",
+    "diluent": "NaCl 0.9%",
+    "conditions": "Y-site",
+    "evidence": "NHS v2.1",
+    "notes": "Formación de precipitado",
+    "confidence": "high"
+  },
+  {
+    "drugA": "Vancomicina",
+    "drugB": "Meropenem",
+    "compatibility": "compatible",
+    "diluent": "NaCl 0.9%",
+    "conditions": "Uso simultáneo",
+    "evidence": "Stabilis",
+    "notes": "Estable en mezcla corta",
+    "confidence": "medium"
+  },
+  {
+    "drugA": "Midazolam",
+    "drugB": "Fentanilo",
+    "compatibility": "compatible",
+    "diluent": "D5W",
+    "conditions": "Infusión continua",
+    "evidence": "NHS v2.1",
+    "notes": "Uso común en UCI",
+    "confidence": "high"
+  },
+  {
+    "drugA": "Midazolam",
+    "drugB": "Propofol",
+    "compatibility": "incompatible",
+    "diluent": "—",
+    "conditions": "No mezclar",
+    "evidence": "Stabilis",
+    "notes": "Emulsión lipídica incompatible",
+    "confidence": "high"
+  },
+  {
+    "drugA": "Noradrenalina",
+    "drugB": "Dobutamina",
+    "compatibility": "compatible",
+    "diluent": "D5W",
+    "conditions": "Y-site",
+    "evidence": "NHS v2.1",
+    "notes": "Uso simultáneo en shock",
+    "confidence": "high"
+  },
+  {
+    "drugA": "Noradrenalina",
+    "drugB": "Furosemida",
+    "compatibility": "incompatible",
+    "diluent": "NaCl 0.9%",
+    "conditions": "Y-site",
+    "evidence": "Stabilis",
+    "notes": "Inestabilidad química",
+    "confidence": "medium"
+  },
+  {
+    "drugA": "Dopamina",
+    "drugB": "Dobutamina",
+    "compatibility": "compatible",
+    "diluent": "D5W",
+    "conditions": "Infusión",
+    "evidence": "NHS v2.1",
+    "notes": "Compatibilidad documentada",
+    "confidence": "high"
+  },
+  {
+    "drugA": "Amiodarona",
+    "drugB": "Heparina",
+    "compatibility": "compatible",
+    "diluent": "D5W",
+    "conditions": "Y-site",
+    "evidence": "NHS v2.1",
+    "notes": "Uso clínico frecuente",
+    "confidence": "medium"
+  },
+  {
+    "drugA": "Amiodarona",
+    "drugB": "Propofol",
+    "compatibility": "incompatible",
+    "diluent": "—",
+    "conditions": "No mezclar",
+    "evidence": "Stabilis",
+    "notes": "Incompatibilidad fisicoquímica",
+    "confidence": "high"
+  },
+  {
+    "drugA": "Insulina",
+    "drugB": "Cloruro de potasio",
+    "compatibility": "compatible",
+    "diluent": "NaCl 0.9%",
+    "conditions": "Infusión",
+    "evidence": "NHS v2.1",
+    "notes": "Uso en protocolos UCI",
+    "confidence": "high"
+  },
+  {
+    "drugA": "Ceftriaxona",
+    "drugB": "Calcio",
+    "compatibility": "incompatible",
+    "diluent": "—",
+    "conditions": "Contraindicado",
+    "evidence": "NHS v2.1",
+    "notes": "Riesgo de precipitado mortal",
+    "confidence": "high"
+  },
+  {
+    "drugA": "Meropenem",
+    "drugB": "Vancomicina",
+    "compatibility": "compatible",
+    "diluent": "NaCl 0.9%",
+    "conditions": "Y-site",
+    "evidence": "Stabilis",
+    "notes": "Compatibilidad limitada en tiempo",
+    "confidence": "medium"
+  },
+  {
+    "drugA": "Furosemida",
+    "drugB": "Midazolam",
+    "compatibility": "incompatible",
+    "diluent": "NaCl 0.9%",
+    "conditions": "Y-site",
+    "evidence": "NHS v2.1",
+    "notes": "Precipitación",
+    "confidence": "high"
+  },
+  {
+    "drugA": "Heparina",
+    "drugB": "Insulina",
+    "compatibility": "compatible",
+    "diluent": "NaCl 0.9%",
+    "conditions": "Infusión",
+    "evidence": "Stabilis",
+    "notes": "Compatibilidad estable",
+    "confidence": "medium"
+  }
+]

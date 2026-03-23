@@ -1,0 +1,15 @@
+{
+  "name": "Compatibilidad IV Pro",
+  "short_name": "IV Pro",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0066ff",
+  "icons": [
+    {
+      "src": "icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

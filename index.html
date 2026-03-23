@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Compatibilidad IV Pro</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+    font-family: Arial;
+    background: #f4f6f9;
+    text-align: center;
+    padding: 20px;
+}
+
+.container {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    max-width: 400px;
+    margin: auto;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+}
+
+select, button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+button {
+    background: #007BFF;
+    color: white;
+    font-weight: bold;
+}
+
+.result {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 18px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+<h2>Compatibilidad IV</h2>
+
+<select id="drug1"></select>
+<select id="drug2"></select>
+
+<button onclick="checkCompatibility()">Ver compatibilidad</button>
+
+<div id="result" class="result"></div>
+</div>
+
+<script>
+const data = {
+    "Midazolam": {
+        "Furosemida": "incompatible",
+        "Vancomicina": "compatible"
+    },
+    "Furosemida": {
+        "Midazolam": "incompatible",
+        "Vancomicina": "no_data"
+    },
+    "Vancomicina": {
+        "Midazolam": "compatible",
+        "Furosemida": "no_data"
+    }
+};
+
+const drugs = Object.keys(data);
+
+function loadDrugs() {
+    const d1 = document.getElementById("drug1");
+    const d2 = document.getElementById("drug2");
+
+    drugs.forEach(d => {
+        d1.innerHTML += `<option>${d}</option>`;
+        d2.innerHTML += `<option>${d}</option>`;
+    });
+}
+
+function checkCompatibility() {
+    const a = document.getElementById("drug1").value;
+    const b = document.getElementById("drug2").value;
+    const resultDiv = document.getElementById("result");
+
+    let result = data[a][b];
+
+    if (!result) result = "no_data";
+
+    if (result === "compatible") {
+        resultDiv.style.background = "#28a745";
+        resultDiv.innerHTML = "✅ Compatible";
+    } else if (result === "incompatible") {
+        resultDiv.style.background = "#dc3545";
+        resultDiv.innerHTML = "❌ Incompatible";
+    } else {
+        resultDiv.style.background = "#ffc107";
+        resultDiv.innerHTML = "⚠️ Sin datos";
+    }
+}
+
+loadDrugs();
+</script>
+
+</body>
+</html>
+
+<p style="font-size:12px; margin-top:20px;">
+⚠️ Esta herramienta es de apoyo. Validar siempre con farmacia clínica.
+</p>
